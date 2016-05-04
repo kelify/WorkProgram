@@ -9,7 +9,7 @@ server.setblocking(False)
 
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-server_address = ('192.168.111.132', 10001)
+server_address = ('192.168.111.128', 10001)
 server.bind(server_address)
 
 server.listen(10)

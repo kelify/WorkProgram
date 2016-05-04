@@ -6,7 +6,7 @@ message = ["This is the message",
 	   "in parts"]
 print "Connect to the server"
 
-server_address = ("192.168.111.132", 10001)
+server_address = ("192.168.111.128", 10001)
 
 socks = []
 
