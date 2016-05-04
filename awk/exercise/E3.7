@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function checkcomma(num){
+	if(gsub(/-/, "", num){
+	count = length(num)
+	INDEX = index(num, ".")
+	comma = index(num, ",")
+	if(INDEX==0){
+		if(count <= 3){
+			if(comma)
+				return 0
+			return 1
+		}
+		elif{
+			if(comma==0)
+				return 0
+			elif(num ~ /[,][0-9]{3}/)
+				return 1
+			else
+				return 0
+		}
+}
+}
+}
+
+

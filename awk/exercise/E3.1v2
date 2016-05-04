@@ -1,0 +1,46 @@
+#!/bin/awk
+
+awk 'BEGIN{FirstLine=1;}
+     NR==1 && $0 ~ /^$/{FirstLine=0;next;}
+     NR==1{ nfld = NF
+          for(i =1;i<=NF;i++){
+		   if(isnum($i)){
+			   sum[i] +=$i
+		   }
+		   else{
+			   sum[i] +=0
+			   }
+	  }
+	   }
+     $0 ~ /^$/{next;}
+     NR !=1   { if(FirstLine==0){
+		      nfld=NF
+		      for(i=1;i<=NF;i++){
+			      if(isnum($i))
+			      	   sum[i] += $i
+		  	      else
+				   sum[i] += 0
+		      }
+		      FirstLine=1
+		      next
+		      }
+		   for(i=1;i<=NF;i++){
+		      if(isnum($i))
+			      sum[i] +=$i
+		      else
+			      sum[i] +=0
+		      
+	      }
+	      }
+     END{ for(i=1;i<=nfld;i++){
+             printf("%s",sum[i])
+	     printf(i < nfld ? "\t" : "\n")
+     }
+     } 
+     function isnum(n){ 
+	     	if(n ~ /^[+-]?[0-9]+$/)
+	     		return 1
+		else
+			return 0
+			}
+     ' $*
